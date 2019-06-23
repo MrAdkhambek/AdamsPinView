@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PinView">
+
+        <attr name="itemBackground" format="integer|reference" />
+        <attr name="itemMargin" format="dimension" />
+        <attr name="itemSize" format="dimension" />
+        <attr name="itemTextColor" format="color" />
+
+        <attr name="cancelButtonColor" format="color" />
+        <attr name="cancelButtonText" format="string" />
+        <attr name="cancelButtonVisible" format="boolean" />
+        <attr name="cancelButtonTextSize" format="dimension" />
+        <attr name="cancelButtonBackground" format="integer|reference" />
+
+        <attr name="removeButtonPadding" format="dimension" />
+        <attr name="removeButtonDrawable" format="reference" />
+        <attr name="removeButtonBackground" format="integer|reference" />
+
+        <attr name="mPinLength" format="integer" />
+
+    </declare-styleable>
+
+    <declare-styleable name="PinViewDots">
+
+        <attr name="fillDotDrawable" format="reference" />
+        <attr name="emptyDotDrawable" format="reference" />
+
+        <attr name="dotSpacing" format="dimension" />
+        <attr name="dotDiameter" format="dimension" />
+        <attr name="pinLength" format="integer" />
+
+    </declare-styleable>
+
+</resources>

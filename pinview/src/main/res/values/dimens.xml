@@ -1,0 +1,13 @@
+<resources>
+
+    <dimen name="dot_spacing">8dp</dimen>
+    <dimen name="dot_diameter">12dp</dimen>
+
+    <dimen name="item_size">72dp</dimen>
+    <dimen name="item_margin">8dp</dimen>
+
+    <dimen name="cancel_button_text_size_size">8sp</dimen>
+
+    <dimen name="remove_button_padding">12sp</dimen>
+
+</resources>
