@@ -8,8 +8,6 @@ import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 
-// Hello adam. Project AdamsPinView
-// 23/06/2019 10:41
 
 /**
  * Extension for get color by resource

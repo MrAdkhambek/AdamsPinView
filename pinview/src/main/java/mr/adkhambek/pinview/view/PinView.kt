@@ -21,6 +21,7 @@ import mr.adkhambek.pinview.R
 import mr.adkhambek.pinview.extensions.getDimensionInPx
 import mr.adkhambek.pinview.listeners.PinViewListener
 
+
 /**
  * PinView
  */
@@ -63,28 +64,29 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
 
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PinView, 0, 0)
 
-        mPinLength = typedArray.getInt(R.styleable.PinView_mPinLength, PinViewDots.DEFAULT_PIN_LENGTH)
+        mPinLength =
+            typedArray.getInt(R.styleable.PinView_mPinLength, PinViewDots.DEFAULT_PIN_LENGTH)
 
         /**
          *  Numbers parameters
          */
 
-        itemBackground = typedArray.getDrawable(R.styleable.PinView_itemBackground)
-                ?: context.getDrawable(R.drawable.item_back)
+        itemBackground = typedArray.getDrawable(R.styleable.PinView_android_itemBackground)
+            ?: context.getDrawable(R.drawable.item_back)
 
         itemMargin = typedArray.getDimension(
-                R.styleable.PinView_itemMargin,
-                context.getDimensionInPx(R.dimen.item_margin)
+            R.styleable.PinView_itemMargin,
+            context.getDimensionInPx(R.dimen.item_margin)
         ).toInt()
 
         itemSize = typedArray.getDimension(
-                R.styleable.PinView_itemSize,
-                context.getDimensionInPx(R.dimen.item_size)
+            R.styleable.PinView_itemSize,
+            context.getDimensionInPx(R.dimen.item_size)
         ).toInt()
 
         itemTextColor = typedArray.getColor(
-                R.styleable.PinView_itemTextColor,
-                Color.BLACK
+            R.styleable.PinView_itemTextColor,
+            Color.BLACK
         )
 
 
@@ -93,19 +95,19 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
          */
 
         cancelButtonColor = typedArray.getColor(
-                R.styleable.PinView_cancelButtonColor,
-                Color.BLACK
+            R.styleable.PinView_cancelButtonColor,
+            Color.BLACK
         )
 
         cancelButtonTextSize = typedArray.getDimension(
-                R.styleable.PinView_cancelButtonTextSize,
-                context.getDimensionInPx(R.dimen.cancel_button_text_size_size)
+            R.styleable.PinView_cancelButtonTextSize,
+            context.getDimensionInPx(R.dimen.cancel_button_text_size_size)
         ).toInt()
 
         cancelButtonVisible = typedArray.getBoolean(R.styleable.PinView_cancelButtonVisible, true)
 
         cancelButtonText = typedArray.getString(R.styleable.PinView_cancelButtonText)
-                ?: context.getString(R.string.cancel)
+            ?: context.getString(R.string.cancel)
 
         cancelButtonBackground = typedArray.getDrawable(R.styleable.PinView_cancelButtonBackground)
 
@@ -114,11 +116,12 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
          *  Remove button parameters
          */
 
-        removeButtonDrawable = typedArray.getResourceId(R.styleable.PinView_removeButtonDrawable, R.drawable.ic_delete)
+        removeButtonDrawable =
+            typedArray.getResourceId(R.styleable.PinView_removeButtonDrawable, R.drawable.ic_delete)
 
         removeButtonPadding = typedArray.getDimension(
-                R.styleable.PinView_removeButtonPadding,
-                context.getDimensionInPx(R.dimen.cancel_button_text_size_size)
+            R.styleable.PinView_removeButtonPadding,
+            context.getDimensionInPx(R.dimen.cancel_button_text_size_size)
         ).toInt()
 
         removeButtonBackground = typedArray.getDrawable(R.styleable.PinView_removeButtonBackground)
@@ -134,7 +137,7 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
     }
 
     private fun initialNumbers() {
-        for (i in 1..9) {
+        for (i: Int in 1..9) {
             addView(TextView(context, null, 0, R.style.btn_pin_style).apply {
                 text = i.toString()
                 layoutParams = lp
@@ -237,7 +240,12 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
 
     private fun shakeItBaby() {
         if (Build.VERSION.SDK_INT >= 26) {
-            (context?.getSystemService(VIBRATOR_SERVICE) as Vibrator).vibrate(VibrationEffect.createOneShot(150, 10))
+            (context?.getSystemService(VIBRATOR_SERVICE) as Vibrator).vibrate(
+                VibrationEffect.createOneShot(
+                    150,
+                    10
+                )
+            )
         } else {
             (context?.getSystemService(VIBRATOR_SERVICE) as Vibrator).vibrate(150)
         }

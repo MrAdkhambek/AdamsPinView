@@ -3,7 +3,7 @@
 
     <declare-styleable name="PinView">
 
-        <attr name="itemBackground" format="integer|reference" />
+        <attr name="android:itemBackground" format="integer|reference" />
         <attr name="itemMargin" format="dimension" />
         <attr name="itemSize" format="dimension" />
         <attr name="itemTextColor" format="color" />

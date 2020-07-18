@@ -10,9 +10,6 @@ import mr.adkhambek.pinview.R
 import mr.adkhambek.pinview.extensions.getDimensionInPx
 
 
-// Hello adam. Project anor-pos-back-office
-// 15/06/2019 18:37
-
 /**
  * Dots for PinView
  */
@@ -31,21 +28,21 @@ class PinViewDots(context: Context, attrs: AttributeSet? = null) : LinearLayout(
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PinViewDots, 0, 0)
 
         mDotSpacing = typedArray.getDimension(
-                R.styleable.PinViewDots_dotSpacing,
-                context.getDimensionInPx(R.dimen.dot_spacing)
+            R.styleable.PinViewDots_dotSpacing,
+            context.getDimensionInPx(R.dimen.dot_spacing)
         ).toInt()
 
         mDotDiameter = typedArray.getDimension(
-                R.styleable.PinViewDots_dotDiameter,
-                context.getDimensionInPx(R.dimen.dot_diameter)
+            R.styleable.PinViewDots_dotDiameter,
+            context.getDimensionInPx(R.dimen.dot_diameter)
         ).toInt()
 
 
         mFillDrawable = typedArray.getDrawable(R.styleable.PinViewDots_fillDotDrawable)
-                ?: context.getDrawable(R.drawable.filled)
+            ?: context.getDrawable(R.drawable.filled)
 
         mEmptyDrawable = typedArray.getDrawable(R.styleable.PinViewDots_fillDotDrawable)
-                ?: context.getDrawable(R.drawable.empty)
+            ?: context.getDrawable(R.drawable.empty)
 
         mPinLength = typedArray.getInt(R.styleable.PinViewDots_pinLength, DEFAULT_PIN_LENGTH)
 
