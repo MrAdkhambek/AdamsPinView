@@ -50,6 +50,17 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
     private var removeButtonDrawable = 0
     private var removeButtonBackground: Drawable? = null
 
+    private var enableVibrate: Boolean = false
+
+    private val vibrator: Vibrator? by lazy {
+        try {
+            context.getSystemService(VIBRATOR_SERVICE) as Vibrator
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
     /**
      *  PinView Listener
      */
@@ -105,6 +116,7 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
         ).toInt()
 
         cancelButtonVisible = typedArray.getBoolean(R.styleable.PinView_cancelButtonVisible, true)
+        enableVibrate = typedArray.getBoolean(R.styleable.PinView_enableVibrateClick, false)
 
         cancelButtonText = typedArray.getString(R.styleable.PinView_cancelButtonText)
             ?: context.getString(R.string.cancel)
@@ -189,6 +201,7 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
         get() = (this * Resources.getSystem().displayMetrics.density).toInt()
 
     private fun onClick(position: Int) {
+        vibrate()
         when (position) {
             10 -> listener?.onCancel()
 
@@ -239,16 +252,25 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
     }
 
     private fun shakeItBaby() {
-        if (Build.VERSION.SDK_INT >= 26) {
-            (context?.getSystemService(VIBRATOR_SERVICE) as Vibrator).vibrate(
+        if (Build.VERSION.SDK_INT >= 26)
+            vibrator?.vibrate(
                 VibrationEffect.createOneShot(
                     150,
                     10
                 )
             )
-        } else {
-            (context?.getSystemService(VIBRATOR_SERVICE) as Vibrator).vibrate(150)
-        }
+        else vibrator?.vibrate(150)
+    }
+
+    private fun vibrate() {
+        if (!enableVibrate) return
+        if (Build.VERSION.SDK_INT >= 26) vibrator?.vibrate(
+            VibrationEffect.createOneShot(
+                150,
+                50
+            )
+        )
+        else vibrator?.vibrate(150)
     }
 
     /**

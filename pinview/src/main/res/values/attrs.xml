@@ -11,6 +11,7 @@
         <attr name="cancelButtonColor" format="color" />
         <attr name="cancelButtonText" format="string" />
         <attr name="cancelButtonVisible" format="boolean" />
+        <attr name="enableVibrateClick" format="boolean" />
         <attr name="cancelButtonTextSize" format="dimension" />
         <attr name="cancelButtonBackground" format="integer|reference" />
 
