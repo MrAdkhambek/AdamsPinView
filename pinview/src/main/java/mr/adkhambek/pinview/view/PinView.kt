@@ -231,11 +231,22 @@ class PinView(context: Context, attrs: AttributeSet? = null) : GridLayout(contex
     fun error() {
         pin = ""
         listener?.onChange(pin)
+        dots?.updateDot(pin.length)
 
         val shake: Animation = AnimationUtils.loadAnimation(context, R.anim.shake)
         startAnimation(shake)
         dots?.startAnimation(shake)
 
+        shakeItBaby()
+    }
+
+    /**
+     * clear
+     */
+    fun clearPins() {
+        pin = ""
+        listener?.onChange(pin)
+        dots?.updateDot(pin.length)
         shakeItBaby()
     }
 
